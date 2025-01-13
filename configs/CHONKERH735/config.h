@@ -109,8 +109,8 @@ Details: https://github.com/crteensy/yolo-chonker/tree/as-built-20230303
 #define ADC1_DMA_OPT                    8
 #define ADC3_DMA_OPT                    9
 
-#define BARO_I2C_INSTANCE               (I2CDEV_2)
-#define MAG_I2C_INSTANCE                (I2CDEV_2)
+#define BARO_I2C_INSTANCE               I2CDEV_2
+#define MAG_I2C_INSTANCE                I2CDEV_2
 #define FLASH_SPI_INSTANCE              SPI4
 #define GYRO_1_SPI_INSTANCE             SPI2
 #define GYRO_2_SPI_INSTANCE             SPI3
@@ -123,8 +123,6 @@ Details: https://github.com/crteensy/yolo-chonker/tree/as-built-20230303
 
 #define DEFAULT_GYRO_TO_USE             GYRO_CONFIG_USE_GYRO_1
 #define GYRO_1_ALIGN                    CW0_DEG_FLIP
-#define GYRO_1_ALIGN_PITCH              1800
 #define GYRO_2_ALIGN                    CW0_DEG_FLIP
-#define GYRO_2_ALIGN_PITCH              1800
 
 #define ENSURE_MPU_DATA_READY_IS_LOW

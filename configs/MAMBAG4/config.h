@@ -82,8 +82,8 @@
 #define ADC2_DMA_OPT                    11
 
 #define ADC_INSTANCE                    ADC2
-#define BARO_I2C_INSTANCE               (I2CDEV_1)
-#define MAG_I2C_INSTANCE                        (I2CDEV_1)
+#define BARO_I2C_INSTANCE               I2CDEV_1
+#define MAG_I2C_INSTANCE                        I2CDEV_1
 #define BEEPER_INVERTED
 #define DEFAULT_BLACKBOX_DEVICE         BLACKBOX_DEVICE_FLASH
 #define DEFAULT_DSHOT_BURST             DSHOT_DMAR_ON
@@ -94,7 +94,5 @@
 #define FLASH_SPI_INSTANCE              SPI2
 #define GYRO_1_SPI_INSTANCE             SPI1
 #define GYRO_1_ALIGN                    CW180_DEG
-#define GYRO_1_ALIGN_YAW                1800
 #define GYRO_2_SPI_INSTANCE             SPI1
 #define GYRO_2_ALIGN                    CW270_DEG
-#define GYRO_2_ALIGN_YAW                2700

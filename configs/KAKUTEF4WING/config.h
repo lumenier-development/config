@@ -39,6 +39,10 @@
 #define USE_FLASH_W25Q128FV
 #define USE_MAX7456
 
+#ifndef USE_WING
+#define USE_WING
+#endif
+
 #define MOTOR1_PIN           PA8
 #define MOTOR2_PIN           PA9
 #define SERVO1_PIN           PB0
@@ -89,13 +93,12 @@
     TIMER_PIN_MAP( 5, SERVO4_PIN   , 2, -1) \
     TIMER_PIN_MAP( 6, LED_STRIP_PIN, 1,  0)
 
-
 #define ADC1_DMA_OPT                 1
 
-#define MIXER_MODE MIXER_FLYING_WING
+#define MIXER_MODE                   MIXER_FLYING_WING
 
-#define MAG_I2C_INSTANCE (I2CDEV_2)
-#define BARO_I2C_INSTANCE (I2CDEV_2)
+#define MAG_I2C_INSTANCE             I2CDEV_2
+#define BARO_I2C_INSTANCE            I2CDEV_2
 
 #define DEFAULT_BLACKBOX_DEVICE      BLACKBOX_DEVICE_FLASH
 #define SERIALRX_UART                SERIAL_PORT_USART3
@@ -113,4 +116,3 @@
 #define PINIO2_BOX                   41
 #define GYRO_1_SPI_INSTANCE          SPI1
 #define GYRO_1_ALIGN                 CW270_DEG
-#define GYRO_1_ALIGN_YAW             2700

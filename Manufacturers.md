@@ -17,6 +17,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |APEX|Apexfpv|https://apexfpv.eu/|
 |AXFL|Axisflying|https://www.axisflying.com/|
 |BKRC|BAYCK RC||
+|BLDY|BotLab Dynamics|https://www.botlabdynamics.store|
 |BEFH|BETAFPV Hobby|https://betafpv.com/|
 |BKMN|Jason Blackman|https://github.com/blckmn|
 |BROT|Brotherhobby Co., Ltd|https://brotherhobby.com/|
@@ -45,8 +46,8 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |FLCO|Shenzhen Flycolor Electronic Co., LTD|http://www.flycolor.net/|
 |FLHI|Fly High|https://elektronchika.github.io/flyhigh/|
 |FLLF|Flying Lemon FPV|https://github.com/flyinglemonfpv|
-|FLMO|FlyMod|https://flymod.net/|
 |FLON|FlightOne|https://flightone.com/|
+|FLTE|FLYTEX LTD|https://www.flytex.pro/|
 |FLWO|Flywoo|https://flywoo.net/|
 |FLYS|FlySpark|https://flyspark.in/|
 |FOXE|Foxeer|http://www.foxeer.com/|
@@ -86,6 +87,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |NYXT|Nyxtronics|https://nyxtronics.com|
 |ODTY|OddityRC|http://www.oddityrc.com|
 |OPEN|OpenPilot|https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/31588369/Supported+Hardware|
+|ORBT|Orbit Technology|https://www.orbitteknoloji.com.tr/|
 |ORQA|Orqa Ltd|https://orqafpv.com/|
 |PRIN|PrincipIoT LLC|https://principiot.com/|
 |PYDR|Pyro-Drone|https://pyrodrone.com/|
@@ -105,6 +107,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |SPDX|Spedix Co, Ltd.|http://www.spedix-rc.com/|
 |SPRO|Seriously Pro Racing (SP Racing)|http://seriouslypro.com/|
 |SQRE|SEQURE|https://sequremall.com|
+|STBE|StingBee|https://stingbee.com.ua|
 |STMI|ST Microelectronics (MCU evaluation boards)|https://www.st.com/content/st_com/en.html|
 |TACO|Taco RC|https://taco-rc.com/|
 |TCMM|Shenzhen Xinmumu Science and Technology Co (TCMM)|http://www.tcmm-rc.cn/|

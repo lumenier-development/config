@@ -97,7 +97,7 @@
 
 #define ADC3_DMA_OPT                        0
 #define ADC_INSTANCE                        ADC3
-#define BARO_I2C_INSTANCE                   (I2CDEV_1)
+#define BARO_I2C_INSTANCE                   I2CDEV_1
 #define FLASH_SPI_INSTANCE                  SPI3
 #define GYRO_1_SPI_INSTANCE                 SPI1
 #define GYRO_2_SPI_INSTANCE                 SPI1
@@ -119,8 +119,5 @@
 #define PINIO2_BOX                          41
 
 #define GYRO_1_ALIGN                        CW180_DEG_FLIP
-#define GYRO_1_ALIGN_PITCH                  1800
-#define GYRO_1_ALIGN_YAW                    1800
 
 #define GYRO_2_ALIGN                        CW270_DEG
-#define GYRO_2_ALIGN_YAW                    2700

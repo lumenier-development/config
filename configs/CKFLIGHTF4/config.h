@@ -89,7 +89,7 @@
 
 #define ADC1_DMA_OPT        1
 
-#define MAG_I2C_INSTANCE (I2CDEV_2)
+#define MAG_I2C_INSTANCE I2CDEV_2
 
 #define BARO_SPI_INSTANCE SPI1
 
@@ -99,7 +99,6 @@
 
 #define GYRO_1_SPI_INSTANCE SPI1
 #define GYRO_1_ALIGN CW0_DEG
-#define GYRO_1_ALIGN_YAW 0
 
 #define MAX7456_SPI_INSTANCE SPI2
 

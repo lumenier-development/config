@@ -45,7 +45,6 @@
 #define GYRO_1_CS_PIN        PA4
 #define GYRO_1_SPI_INSTANCE  SPI1
 #define GYRO_1_ALIGN         CW180_DEG
-#define GYRO_1_ALIGN_YAW     1800
 
 #define SPI1_SCK_PIN         PA5
 #define SPI1_SDI_PIN         PA6
@@ -110,8 +109,8 @@
 #define ESCSERIAL_PIN        PB9
 #define PINIO1_PIN           PB0
 
-#define BARO_I2C_INSTANCE (I2CDEV_1)
-#define MAG_I2C_INSTANCE (I2CDEV_1)
+#define BARO_I2C_INSTANCE I2CDEV_1
+#define MAG_I2C_INSTANCE I2CDEV_1
 
 #define DEFAULT_BLACKBOX_DEVICE      BLACKBOX_DEVICE_FLASH
 #define DEFAULT_DSHOT_BURST          DSHOT_DMAR_OFF

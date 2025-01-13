@@ -102,9 +102,9 @@
 
 #define ADC1_DMA_OPT                    1
 
-#define MAG_I2C_INSTANCE                (I2CDEV_1)
+#define MAG_I2C_INSTANCE                I2CDEV_1
 #define USE_BARO
-#define BARO_I2C_INSTANCE               (I2CDEV_1)
+#define BARO_I2C_INSTANCE               I2CDEV_1
 #define DEFAULT_CURRENT_METER_SOURCE    CURRENT_METER_ADC
 #define DEFAULT_VOLTAGE_METER_SOURCE    VOLTAGE_METER_ADC
 #define DEFAULT_VOLTAGE_METER_SCALE     210
@@ -119,8 +119,6 @@
 
 #define GYRO_1_SPI_INSTANCE             SPI1
 #define GYRO_1_ALIGN                    CW270_DEG_FLIP
-#define GYRO_1_ALIGN_PITCH              1800
-#define GYRO_1_ALIGN_YAW                2700
 
 #define SERIALRX_UART                   SERIAL_PORT_USART2
 #define DEFAULT_RX_FEATURE              FEATURE_RX_SERIAL
