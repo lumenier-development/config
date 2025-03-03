@@ -23,7 +23,7 @@
 
 #define FC_TARGET_MCU     STM32F745
 
-#define BOARD_NAME        LUXNDAAF7
+#define BOARD_NAME        LUXF765NDAA
 #define MANUFACTURER_ID   LMNR
 
 #define USE_ACC
