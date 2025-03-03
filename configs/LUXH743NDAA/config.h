@@ -23,7 +23,7 @@
 
 #define FC_TARGET_MCU     STM32H743
 
-#define BOARD_NAME        H743NDAA
+#define BOARD_NAME        LUXH743NDAA
 #define MANUFACTURER_ID   LMNR
 
 #define USE_ACC
