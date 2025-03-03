@@ -23,26 +23,30 @@
 
 #define FC_TARGET_MCU     STM32H743
 
-#define BOARD_NAME        LUXNDAAH7
+#define BOARD_NAME        H743NDAA
 #define MANUFACTURER_ID   LMNR
 
 #define USE_ACC
 #define USE_ACC_SPI_ICM42688P
 #define USE_GYRO
-#define USE_SPI_GYRO
 #define USE_GYRO_SPI_ICM42688P
-#define USE_FLASH
 #define USE_BARO
 #define USE_BARO_DPS310
+#define USE_FLASH
 #define USE_FLASH_W25Q128FV
 #define USE_SDCARD
 #define USE_MAX7456
 #define USE_EXTI
 #define USE_MPU_DATA_READY_SIGNAL
 #define USE_GYRO_EXTI
+
+#ifndef USE_MAG
 #define USE_MAG
-#define USE_RX_MSP
+#endif
+
+#ifndef USE_GPS
 #define USE_GPS
+#endif
 
 #define BEEPER_PIN           PC8
 
@@ -54,6 +58,11 @@
 #define MOTOR6_PIN           PD13
 #define MOTOR7_PIN           PD14
 #define MOTOR8_PIN           PD15
+
+#define SERVO1_PIN           PA8
+#define SERVO2_PIN           PE11
+#define SERVO3_PIN           PE13
+#define SERVO4_PIN           PE14
 
 #define RX_PPM_PIN           PC9
 
@@ -106,11 +115,12 @@
 #define ADC_VBAT_PIN         PC0
 #define ADC_RSSI_PIN         PC5
 #define ADC_CURR_PIN         PC1
-#define ADC_EXTERNAL1_PIN    PC4  // Airspeed
+#define ADC_EXTERNAL1_PIN    PC4    // Airspeed
 
-#define SDCARD_SPI_CS_PIN    PA10 // SPI2_NSS
+#define SDCARD_SPI_CS_PIN    PA10   // SPI2_NSS
 #define SDCARD_DETECT_PIN    PE12
 #define PINIO1_PIN           PB2    // VTX Power Switch
+#define PINIO2_PIN           PD10   // Camera Switch
 #define FLASH_CS_PIN         PA4    // SPI1_NSS
 #define MAX7456_SPI_CS_PIN   PE4    // SPI4_NSS
 #define GYRO_1_EXTI_PIN      PC13  
@@ -135,28 +145,27 @@
 */
 
 #define TIMER_PIN_MAPPING \
-    TIMER_PIN_MAP( 0, MOTOR1_PIN,  1, -1) \
-    TIMER_PIN_MAP( 1, MOTOR2_PIN,  1, -1) \
-    TIMER_PIN_MAP( 2, MOTOR3_PIN,  1, -1) \
-    TIMER_PIN_MAP( 3, MOTOR4_PIN,  1, -1) \
-    TIMER_PIN_MAP( 4, MOTOR5_PIN,  1, -1) \
-    TIMER_PIN_MAP( 5, MOTOR6_PIN,  1, -1) \
-    TIMER_PIN_MAP( 6, MOTOR7_PIN,  1, -1) \
-    TIMER_PIN_MAP( 7, MOTOR8_PIN,  1, -1) \
-    TIMER_PIN_MAP( 8, PA8,   1, 10) \
-    TIMER_PIN_MAP( 9, PE11,  1, 11) \
-    TIMER_PIN_MAP( 10, PE13, 1, 12) \
-    TIMER_PIN_MAP( 11, PE14, 1, 13) \
-    TIMER_PIN_MAP( 12, PC9,  2, 14) \
-    TIMER_PIN_MAP( 13, PB0,  2, 15) \
+    TIMER_PIN_MAP( 0,  MOTOR1_PIN,     1, 0) \
+    TIMER_PIN_MAP( 1,  MOTOR2_PIN,     1, 1) \
+    TIMER_PIN_MAP( 2,  MOTOR3_PIN,     1, 2) \
+    TIMER_PIN_MAP( 3,  MOTOR4_PIN,     1, 3) \
+    TIMER_PIN_MAP( 4,  MOTOR5_PIN,     1, 4) \
+    TIMER_PIN_MAP( 5,  MOTOR6_PIN,     1, 5) \
+    TIMER_PIN_MAP( 6,  MOTOR7_PIN,     1, 6) \
+    TIMER_PIN_MAP( 7,  MOTOR8_PIN,     1, 7) \
+    TIMER_PIN_MAP( 8,  SERVO1_PIN,     1, -1) \
+    TIMER_PIN_MAP( 9,  SERVO2_PIN,     1, -1) \
+    TIMER_PIN_MAP( 10, SERVO3_PIN,     1, -1) \
+    TIMER_PIN_MAP( 11, SERVO4_PIN,     1, -1) \
+    TIMER_PIN_MAP( 12, RX_PPM_PIN,     2, -1) \
+    TIMER_PIN_MAP( 13, LED_STRIP_PIN,  2, 11) \
 
-#define TIMUP2_DMA_OPT      0 
-#define TIMUP4_DMA_OPT      1 
-#define TIMUP1_DMA_OPT      2
 #define ADC1_DMA_OPT        8
-#define ADC3_DMA_OPT        9
+#define ADC3_DMA_OPT        10
+#define TIMUP2_DMA_OPT      12 
+#define TIMUP4_DMA_OPT      13 
+#define TIMUP1_DMA_OPT      14
 
-#define USE_DSHOT_DMAR
 #define DEFAULT_DSHOT_BURST DSHOT_DMAR_ON
 
 #define MAG_I2C_INSTANCE            (I2CDEV_1)
@@ -179,4 +188,6 @@
 #define SDCARD_DETECT_INVERTED
 
 #define PINIO1_CONFIG 1
-#define PINIO1_BOX 0
+#define PINIO1_BOX 40
+#define PINIO2_CONFIG 1
+#define PINIO2_BOX 41
