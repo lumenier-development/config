@@ -22,6 +22,8 @@ jobs:
 
           # Extract HTTP status code from the response
           http_status="${response: -3}"
+          body="${response%${http_status}}"
+          echo "Full response: $body"
           echo "HTTP status code: $http_status"
           
           if [ "$http_status" -eq 204 ]; then
