@@ -16,10 +16,13 @@ jobs:
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches
 
-            # Extract the run ID from the response
-            run_id=$(echo $response | jq -r .id)
-            echo "Workflow dispatched with run ID: $run_id"
-            echo "run_id=$run_id" >> $GITHUB_ENV
+          # Debugging: Print the entire response
+          echo "Response: $response"
+
+          # Extract the run ID from the response
+          run_id=$(echo $response | jq -r .id)
+          echo "Workflow dispatched with run ID: $run_id"
+          echo "run_id=$run_id" >> $GITHUB_ENV
 
       - name: Wait for Workflow to Finish
         run: |
