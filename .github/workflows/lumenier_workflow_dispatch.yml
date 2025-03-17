@@ -25,11 +25,8 @@ jobs:
           echo "HTTP status code: $http_status"
           
           # Check if the dispatch was successful (HTTP status 204)
-          if [ "$http_status" -eq 204 ]; then
+          if [ "$http_status" -eq 202 ]; then
             echo "Workflow dispatch was successful."
-
-            echo "Sleeping for 10 seconds"
-            sleep 10
 
             # Poll for the latest workflow run ID
             echo "Polling for the latest workflow run ID..."
@@ -40,16 +37,21 @@ jobs:
             last_run_id=$(echo $runs_response | jq -r '.workflow_runs[0].id')
             if [ "$last_run_id" != "null" ]; then
               echo "Last workflow run ID: $last_run_id"
-  
-              # Check the status of the latest run
-              status_response=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
-                "https://api.github.com/repos/lumenier-development/betaflight/actions/runs/$last_run_id")
               
-              status=$(echo $status_response | jq -r '.status')
-              conclusion=$(echo $status_response | jq -r '.conclusion')
-  
-              echo "Workflow run status: $status"
-              echo "Workflow run conclusion: $conclusion"
+              status="queued"
+              while [[ "$status" == "in_progress" || "$status" == "queued" ]]; do
+                echo "($status): Workflow run is still in progress. Waiting..."
+                sleep 10
+
+                # Check the status of the latest run
+                status_response=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+                  "https://api.github.com/repos/lumenier-development/betaflight/actions/runs/$last_run_id")
+
+                status=$(echo $status_response | jq -r '.status')
+                conclusion=$(echo $status_response | jq -r '.conclusion')
+              done
+
+              echo "Workflow finished with conclusion: $conclusion"
             else
               echo "No workflow run found after dispatch. Retrying..."
               exit 1  # Or add retries/polling here
