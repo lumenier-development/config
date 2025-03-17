@@ -23,6 +23,8 @@ jobs:
           
           if [ "$http_status" -eq 204 ]; then
             echo "Workflow dispatch was successful."
+            echo "Sleeping for 10 seconds to allow workflow to start..."
+            sleep 10
 
             # Poll for the latest workflow run ID
             echo "Polling for the latest workflow run ID..."
