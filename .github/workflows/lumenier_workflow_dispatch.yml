@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Send Dispatch Event
         run: |
+          # Set wait interval (in seconds)
+          wait_interval=10
+
           # Trigger the workflow dispatch
           response=$(curl -s -w "%{http_code}" -X POST -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
@@ -27,6 +30,9 @@ jobs:
           # Check if the dispatch was successful (HTTP status 204)
           if [ "$http_status" -eq 204 ]; then
             echo "Workflow dispatch was successful."
+
+            echo "Sleeping for $wait_interval seconds"
+            sleep $wait_interval
 
             # Poll for the latest workflow run ID
             echo "Polling for the latest workflow run ID..."
