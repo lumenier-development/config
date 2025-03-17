@@ -16,6 +16,10 @@ jobs:
             -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
+
+          # Wait for a brief moment after dispatching
+          echo "Waiting for 5 seconds before processing the response..."
+          sleep 5
           
           # Extract HTTP status code from the response
           http_status="${response: -3}"
