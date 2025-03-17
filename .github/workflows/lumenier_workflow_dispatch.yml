@@ -53,6 +53,6 @@ jobs:
               exit 1  
             fi
           else
-            echo "Error triggering workflow!
+            echo "Error triggering workflow!"
             exit 1
           fi
