@@ -38,7 +38,7 @@ jobs:
               
               status="queued"
               while [[ "$status" == "in_progress" || "$status" == "queued" ]]; do
-                echo "($status): Workflow run is still in progress. Waiting..."
+                echo "Workflow status: $status. Checking again in 10 seconds..."
                 sleep 10
 
                 # Check the status of the latest run
