@@ -16,39 +16,8 @@ jobs:
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches
 
-          # Debugging: Print the entire response
-          echo "Response: $response"
-
-          # Extract the run ID from the response
-          run_id=$(echo $response | jq -r .id)
-          echo "Workflow dispatched with run ID: $run_id"
-          echo "run_id=$run_id" >> $GITHUB_ENV
-
-      - name: Wait for Workflow to Finish
-        run: |
-          echo "Waiting for workflow ${{ env.run_id }} to finish..."
-          
-          # Check the status of the workflow run every 15 seconds
-          while true; do
-            status=$(curl -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
-              -s https://api.github.com/repos/lumenier-development/betaflight/actions/runs/${{ env.run_id }})
-            
-            # Get the status of the workflow
-            conclusion=$(echo $status | jq -r .status)
-            echo "Workflow status: $conclusion"
-
-            if [ "$conclusion" == "completed" ]; then
-              final_status=$(echo $status | jq -r .conclusion)
-              echo "Workflow completed with status: $final_status"
-              if [ "$final_status" == "success" ]; then
-                echo "The workflow completed successfully!"
-                break
-              else
-                echo "The workflow failed!"
-                exit 1
-              fi
-            fi
-
-            # Wait for 15 seconds before checking again
-            sleep 15
-          done
+          last_workflow_id=$(echo $last_workflow | jq '.id')
+          echo "The workflow id is [$last_workflow_id]."
+          echo ""
+          conclusion=$(echo $last_workflow | jq '.conclusion')
+          status=$(echo $last_workflow | jq '.status')
