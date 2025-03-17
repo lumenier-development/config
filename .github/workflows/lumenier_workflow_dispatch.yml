@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Send Dispatch Event
         run: |
-          echo "::set-output name=branch::$(echo ${GITHUB_REF##*/})"
-          echo $branch
+          branch_name="${GITHUB_REF#refs/heads/}"
+          echo "Branch name of the workflow is: $branch_name"
 
           # Trigger the workflow dispatch
           response=$(curl -s -w "%{http_code}" -X POST -H "Accept: application/vnd.github.v3+json" \
