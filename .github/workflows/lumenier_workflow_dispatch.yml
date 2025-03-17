@@ -16,6 +16,8 @@ jobs:
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
 
+          echo "Full response: $response"
+          
           # Check if the response is successful and retrieve the workflow run ID
           last_workflow_id=$(echo $response | jq '.id')
           echo "The workflow id is [$last_workflow_id]."
