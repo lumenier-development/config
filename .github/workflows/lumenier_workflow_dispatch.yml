@@ -17,19 +17,11 @@ jobs:
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
 
-          # Wait for a brief moment after dispatching
-          echo "Waiting for 5 seconds before processing the response..."
-          sleep 5
-          
           # Extract HTTP status code from the response
           http_status="${response: -3}"
-          body="${response%${http_status}}"
-          
-          echo "Full response: $body"
           echo "HTTP status code: $http_status"
           
-          # Check if the dispatch was successful (HTTP status 204)
-          if [ "$http_status" -eq 202 ]; then
+          if [ "$http_status" -eq 204 ]; then
             echo "Workflow dispatch was successful."
 
             # Poll for the latest workflow run ID
@@ -57,10 +49,10 @@ jobs:
 
               echo "Workflow finished with conclusion: $conclusion"
             else
-              echo "No workflow run found after dispatch. Retrying..."
-              exit 1  # Or add retries/polling here
+              echo "No workflow run found after dispatch."
+              exit 1  
             fi
           else
-            echo "Error triggering workflow: $body"
+            echo "Error triggering workflow!
             exit 1
           fi
