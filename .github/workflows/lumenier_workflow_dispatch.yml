@@ -11,13 +11,42 @@ jobs:
     steps:
       - name: Send Dispatch Event
         run: |
-          response=$(curl -X POST -H "Accept: application/vnd.github.v3+json" \
+          # Trigger the workflow dispatch
+          response=$(curl -s -w "%{http_code}" -X POST -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
             --data '{"ref": "WORKFLOW_TEST"}' \
             https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
-
-          echo "Full response: $response"
           
-          # Check if the response is successful and retrieve the workflow run ID
-          last_workflow_id=$(echo $response | jq '.id')
-          echo "The workflow id is [$last_workflow_id]."
+          # Extract HTTP status code from the response
+          http_status="${response: -3}"
+          body="${response%${http_status}}"
+          
+          echo "Full response: $body"
+          echo "HTTP status code: $http_status"
+          
+          # Check if the dispatch was successful (HTTP status 202)
+          if [ "$http_status" -eq 202 ]; then
+            echo "Workflow dispatch was successful."
+            
+            # Poll for the workflow run ID
+            echo "Polling for the latest workflow run ID..."
+            runs_response=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+              "https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/runs")
+
+            # Extract the ID of the latest run
+            last_run_id=$(echo $runs_response | jq -r '.workflow_runs[0].id')
+            echo "Last workflow run ID: $last_run_id"
+
+            # Check the status of the latest run
+            status_response=$(curl -s -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+              "https://api.github.com/repos/lumenier-development/betaflight/actions/runs/$last_run_id")
+            
+            status=$(echo $status_response | jq -r '.status')
+            conclusion=$(echo $status_response | jq -r '.conclusion')
+
+            echo "Workflow run status: $status"
+            echo "Workflow run conclusion: $conclusion"
+          else
+            echo "Error triggering workflow: $body"
+            exit 1
+          fi
