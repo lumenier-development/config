@@ -17,7 +17,7 @@ jobs:
 
           json_payload=$(jq -n \
             --arg branch_name "$branch_name" \
-            --arg target_list '["LUXF765NDAA"]' \  # Pass as a stringified array
+            --argjson target_list '["LUXF765NDAA"]' \
             --arg identifier "$SHORT_SHA" \
             '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": $branch_name, "target_list": $target_list, "identifier": $identifier}}')
 
