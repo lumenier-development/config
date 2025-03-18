@@ -13,7 +13,7 @@ jobs:
         run: |
           # Define variables
           branch_name="${GITHUB_REF#refs/heads/}"
-          target_list='["LUXF765NDAA","SPRACINGH7EXTREME"]'
+          target_list='[]'
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
 
           json_payload=$(jq -n \
