@@ -11,23 +11,25 @@ jobs:
     steps:
       - name: Send Dispatch Event
         run: |
+          # Define variables
           branch_name="${GITHUB_REF#refs/heads/}"
-          echo "Branch name of the workflow is: $branch_name"
-
           target_list='["LUXF765NDAA"]'
-          echo "Target list is: $target_list"
-
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          echo "Shortened commit hash: $SHORT_SHA"
 
-          echo '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": "'"$branch_name"'", "target_list": '"'"$target_list"'"', "identifier": "'"$SHORT_SHA"'"}}'
+          # Debug JSON output
+          json_payload=$(jq -n \
+          --arg branch_name "$branch_name" \
+          --argjson target_list "$target_list" \
+          --arg identifier "$SHORT_SHA" \
+          '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": $branch_name, "target_list": $target_list, "identifier": $identifier}}')
 
-          # Trigger the workflow dispatch
+          echo "Generated JSON payload: $json_payload"
+
+          # Send request
           response=$(curl -s -w "%{http_code}" -X POST -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
-            --data '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": "'"$branch_name"'", \
-            "target_list": '"'"$target_list"'"', "identifier": "'"$SHORT_SHA"'"}}' \
-            https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
+          -H "Authorization: token ${{ secrets.REPO_TOKEN }}" \
+          --data "$json_payload" \
+          https://api.github.com/repos/lumenier-development/betaflight/actions/workflows/lumenier_build.yml/dispatches)
 
           # Extract HTTP status code from the response
           http_status="${response: -3}"
