@@ -17,7 +17,7 @@ jobs:
 
           # Read targets from JSON file and ensure it's properly formatted
           if [ -f LUMENIER_TARGETS.json ]; then
-            target_list=$(jq -c . LUMENIER_TARGETS.json)
+            target_list=$(jq -c "." LUMENIER_TARGETS.json)
           else
             target_list="[]"
           fi
