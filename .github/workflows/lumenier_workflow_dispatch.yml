@@ -14,7 +14,6 @@ jobs:
 
       - name: Send Dispatch Event
         run: |
-          ls -l
           # Define variables
           branch_name="${GITHUB_REF#refs/heads/}"
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
