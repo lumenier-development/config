@@ -15,6 +15,7 @@ jobs:
       - name: Send Dispatch Event
         run: |
           # Define variables
+          # branch_name is the config branch this action is running on.
           branch_name="${GITHUB_REF#refs/heads/}"
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
 
@@ -26,6 +27,7 @@ jobs:
             target_list="[]"
           fi
 
+          # "ref" is the branch we want to build in Betaflight repo.
           json_payload=$(jq -n \
             --arg branch_name "$branch_name" \
             --arg target_list "$target_list" \
