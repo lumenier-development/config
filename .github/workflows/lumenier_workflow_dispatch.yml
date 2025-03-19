@@ -13,12 +13,18 @@ jobs:
         run: |
           # Define variables
           branch_name="${GITHUB_REF#refs/heads/}"
-          target_list='["LUXF765NDAA"]'
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+
+          # Read targets from JSON file and ensure it's properly formatted
+          if [ -f LUMENIER_TARGETS.json ]; then
+            target_list=$(jq -c . LUMENIER_TARGETS.json)
+          else
+            target_list="[]"
+          fi
 
           json_payload=$(jq -n \
             --arg branch_name "$branch_name" \
-            --arg target_list "$target_list" \
+            --argjson target_list "$target_list" \
             --arg identifier "$SHORT_SHA" \
             '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": $branch_name, "target_list": $target_list, "identifier": $identifier}}')
 
