@@ -29,7 +29,7 @@ jobs:
 
           json_payload=$(jq -n \
             --arg branch_name "$branch_name" \
-            --argjson target_list "$target_list" \
+            --arg target_list "$target_list" \
             --arg identifier "$SHORT_SHA" \
             '{"ref": "WORKFLOW_TEST", "inputs": {"branch_name": $branch_name, "target_list": $target_list, "identifier": $identifier}}')
 
