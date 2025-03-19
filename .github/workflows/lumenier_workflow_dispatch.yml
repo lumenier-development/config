@@ -16,9 +16,10 @@ jobs:
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
 
           # Read targets from JSON file and ensure it's properly formatted
-          if [ -f LUMENIER_TARGETS.json ]; then
-            target_list=$(jq -c "." LUMENIER_TARGETS.json)
+          if [ -f ./LUMENIER_TARGETS.json ]; then
+            target_list=$(jq -c "." ./LUMENIER_TARGETS.json)
           else
+            echo "Cannot find LUMENIER_TARGETS.json file. Defaulting to empty list."
             target_list="[]"
           fi
 
