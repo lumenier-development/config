@@ -48,6 +48,9 @@
 #define USE_GPS
 #endif
 
+#define USE_GYRO_CLKIN
+#define GYRO_1_CLKIN_PIN     PB15         // TIM12_CH2
+
 #define BEEPER_PIN           PA8
 
 #define MOTOR1_PIN           PE9
@@ -84,10 +87,10 @@
 #define UART7_RX_PIN         PE7
 #define UART8_RX_PIN         PE0
 
-#define I2C1_SCL_PIN         PB6
-#define I2C1_SDA_PIN         PB7
-#define I2C4_SCL_PIN         PB8
-#define I2C4_SDA_PIN         PB9
+#define I2C1_SCL_PIN         PB8
+#define I2C1_SDA_PIN         PB9
+#define I2C4_SCL_PIN         PB6
+#define I2C4_SDA_PIN         PB7
 
 #define LED0_PIN             PE3
 
@@ -143,20 +146,21 @@
 */
 
 #define TIMER_PIN_MAPPING \
-    TIMER_PIN_MAP( 0,  MOTOR1_PIN,     1, 0) \
-    TIMER_PIN_MAP( 1,  MOTOR2_PIN,     1, 1) \
-    TIMER_PIN_MAP( 2,  MOTOR3_PIN,     1, 2) \
-    TIMER_PIN_MAP( 3,  MOTOR4_PIN,     1, 3) \
-    TIMER_PIN_MAP( 4,  MOTOR5_PIN,     2, 4) \
-    TIMER_PIN_MAP( 5,  MOTOR6_PIN,     2, 5) \
-    TIMER_PIN_MAP( 6,  MOTOR7_PIN,     2, 6) \
-    TIMER_PIN_MAP( 7,  MOTOR8_PIN,     2, 7) \
-    TIMER_PIN_MAP( 8,  SERVO1_PIN,     1, -1) \
-    TIMER_PIN_MAP( 9,  SERVO2_PIN,     1, -1) \
-    TIMER_PIN_MAP( 10, SERVO3_PIN,     1, -1) \
-    TIMER_PIN_MAP( 11, SERVO4_PIN,     1, -1) \
-    TIMER_PIN_MAP( 12, RX_PPM_PIN,     1, -1) \
-    TIMER_PIN_MAP( 13, LED_STRIP_PIN,  2, 11) \
+    TIMER_PIN_MAP( 0,  MOTOR1_PIN,          1, 0) \
+    TIMER_PIN_MAP( 1,  MOTOR2_PIN,          1, 1) \
+    TIMER_PIN_MAP( 2,  MOTOR3_PIN,          1, 2) \
+    TIMER_PIN_MAP( 3,  MOTOR4_PIN,          1, 3) \
+    TIMER_PIN_MAP( 4,  MOTOR5_PIN,          2, 4) \
+    TIMER_PIN_MAP( 5,  MOTOR6_PIN,          2, 5) \
+    TIMER_PIN_MAP( 6,  MOTOR7_PIN,          2, 6) \
+    TIMER_PIN_MAP( 7,  MOTOR8_PIN,          2, 7) \
+    TIMER_PIN_MAP( 8,  SERVO1_PIN,          1, -1) \
+    TIMER_PIN_MAP( 9,  SERVO2_PIN,          1, -1) \
+    TIMER_PIN_MAP( 10, SERVO3_PIN,          1, -1) \
+    TIMER_PIN_MAP( 11, SERVO4_PIN,          1, -1) \
+    TIMER_PIN_MAP( 12, RX_PPM_PIN,          1, -1) \
+    TIMER_PIN_MAP( 13, LED_STRIP_PIN,       2, 11) \
+    TIMER_PIN_MAP( 14, GYRO_1_CLKIN_PIN,    2, -1) \
 
 #define ADC1_DMA_OPT        8
 #define ADC3_DMA_OPT        10
