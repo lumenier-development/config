@@ -143,6 +143,7 @@
     PD15 - TIM4_CH4
     PA2 -  TIM2_CH3
     PB0 -  TIM3_CH3
+    PA3 -  TIM5_CH4
 */
 
 #define TIMER_PIN_MAPPING \
@@ -161,6 +162,7 @@
     TIMER_PIN_MAP( 12, RX_PPM_PIN,          1, -1) \
     TIMER_PIN_MAP( 13, LED_STRIP_PIN,       2, 11) \
     TIMER_PIN_MAP( 14, GYRO_1_CLKIN_PIN,    2, -1) \
+    TIMER_PIN_MAP( 15, CAMERA_CONTROL_PIN,  2, -1) \
 
 #define ADC1_DMA_OPT        8
 #define ADC3_DMA_OPT        10
