@@ -143,6 +143,7 @@
     PD15 - TIM4_CH4
     PA2 -  TIM2_CH3
     PB0 -  TIM3_CH3
+    PB15 - TIM12_CH2
     PA3 -  TIM5_CH4
 */
 
