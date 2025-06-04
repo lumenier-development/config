@@ -186,3 +186,7 @@
 #define GPIO_AF4_USART1        ((uint8_t)0x04)  /* USART1 Alternate Function mapping */
 #define GPIO_AF6_UART4         ((uint8_t)0x06U)   /* UART4 Alternate Function mapping */   
 #define GPIO_AF12_UART7        ((uint8_t)0xCU)  /* UART7 Alternate Function mapping */
+
+#ifndef USE_OSD
+#define USE_OSD
+#endif
