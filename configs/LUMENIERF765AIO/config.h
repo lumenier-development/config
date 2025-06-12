@@ -21,7 +21,7 @@
 
 #pragma once
 
-#define FC_TARGET_MCU     STM32F745
+#define FC_TARGET_MCU     STM32F765
 
 #define BOARD_NAME        AVIARAF765NDAA
 #define MANUFACTURER_ID   LMNR
