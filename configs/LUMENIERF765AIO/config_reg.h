@@ -21,7 +21,7 @@
 
 #pragma once
 
-#define FC_TARGET_MCU     STM32F745
+#define FC_TARGET_MCU     STM32F765
 
 #define BOARD_NAME        AVIARAF765NDAA
 #define MANUFACTURER_ID   LMNR
@@ -61,7 +61,6 @@
 #define MOTOR2_PIN           PA1
 #define MOTOR3_PIN           PA2
 #define MOTOR4_PIN           PA3
-/*
 #define MOTOR5_PIN           PE9
 #define MOTOR6_PIN           PE11
 #define MOTOR7_PIN           PE13
@@ -71,7 +70,6 @@
 #define SERVO2_PIN           PD13
 #define SERVO3_PIN           PD14
 #define SERVO4_PIN           PD15
-*/
 
 #define LED_STRIP_PIN        PB5
 #define CAMERA_CONTROL_PIN   PB9
@@ -149,9 +147,17 @@
     TIMER_PIN_MAP( 1,   MOTOR2_PIN,         2,  0) \
     TIMER_PIN_MAP( 2,   MOTOR3_PIN,         2,  0) \
     TIMER_PIN_MAP( 3,   MOTOR4_PIN,         2,  0) \
-    TIMER_PIN_MAP( 4,   LED_STRIP_PIN,      1,  0) \
-    TIMER_PIN_MAP( 5,   GYRO_1_CLKIN_PIN,   1, -1) \
-    TIMER_PIN_MAP( 6,   CAMERA_CONTROL_PIN, 2, -1) \
+    TIMER_PIN_MAP( 4,   MOTOR5_PIN,         1,  2) \
+    TIMER_PIN_MAP( 5,   MOTOR6_PIN,         1,  1) \
+    TIMER_PIN_MAP( 6,   MOTOR7_PIN,         1,  1) \
+    TIMER_PIN_MAP( 7,   MOTOR8_PIN,         1,  0) \
+    TIMER_PIN_MAP( 8,   SERVO1_PIN,         1, -1) \
+    TIMER_PIN_MAP( 9,   SERVO2_PIN,         1, -1) \
+    TIMER_PIN_MAP( 10,  SERVO3_PIN,         1, -1) \
+    TIMER_PIN_MAP( 11,  SERVO4_PIN,         1, -1) \
+    TIMER_PIN_MAP( 12,  LED_STRIP_PIN,      1,  0) \
+    TIMER_PIN_MAP( 13,  GYRO_1_CLKIN_PIN,   1, -1) \
+    TIMER_PIN_MAP( 14,  CAMERA_CONTROL_PIN, 2, -1) \
 
 #define ADC1_DMA_OPT     0       // DMA(2, 0, 0) 
 #define ADC3_DMA_OPT     1       // DMA(2, 1, 2)
