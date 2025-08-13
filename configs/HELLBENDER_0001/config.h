@@ -42,6 +42,8 @@
 #define LED0_PIN             PA6
 #define LED1_PIN             PA7
 
+#define LED_STRIP_PIN        PA38
+
 #define SPI0_SCK_PIN         PA2
 #define SPI0_SDI_PIN         PA4
 #define SPI0_SDO_PIN         PA3
@@ -50,10 +52,12 @@
 #define SPI1_SDI_PIN         PA24
 #define SPI1_SDO_PIN         PA27
 
-#define SDCARD_CS_PIN        PA25
+#define SDCARD_SPI_CS_PIN    PA25
 //#define FLASH_CS_PIN         PA0
-#define MAX7456_SPI_CS_PIN   PA17
-#define USE_MAX7456
+//#define MAX7456_SPI_CS_PIN   PA17
+#define USE_SDCARD
+#define USE_SDCARD_SPI
+#define DEFAULT_BLACKBOX_DEVICE         BLACKBOX_DEVICE_SDCARD
 
 #define GYRO_1_CS_PIN        PA1
 #define GYRO_1_EXTI_PIN      PA22
@@ -74,6 +78,11 @@
 #define BEEPER_PIN           PA5
 
 #define PICO_BEC_5V_ENABLE_PIN PA14
+#define PICO_BEC_9V_ENABLE_PIN PA15
+
+#define ADC_VBAT_PIN         PA40
+#define ADC_CURR_PIN         PA41
+#define ADC_RSSI_PIN         PA42
 
 /*
 
