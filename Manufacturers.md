@@ -100,6 +100,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |PYDR|Pyro-Drone|https://pyrodrone.com/|
 |PYID|PYI Technologies|https://pyidrones.com/|
 |RALI|RadioLink Electronic Ltd|https://radiolink.com/|
+|RASP|Raspberry PI|https://www.raspberrypi.com/|
 |RAST|Racerstar|https://www.racerstar.com/|
 |RCTI|RCTimer|http://rctimer.com/|
 |RDMS|RadioMaster RC|https://www.radiomasterrc.com/|
@@ -126,8 +127,10 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |TURC|TUNERC|https://www.tunerc.com/|
 |VGRC|V-GOOD Technology Co.|http://www.vgoodrc.com/|
 |VIVA|VivaFPV|https://vivafpv.com/|
+|VWIN|Huizhou Xinchuang Technology Co., Ltd.||
 |WDIY|WDIY|http://wdiy.net.cn/|
 |WIZZ|WIZZ|https://wizz.store/|
+|WRPL|Warp Labs|https://www.warplabs.it/|
 |YUPF|YuPiFc|https://www.yupifc.com/|
 |YYRC|JLDZ||
 |ZEEZ|Zeez RC|https://www.zeezrc.com/|
