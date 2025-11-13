@@ -23,7 +23,7 @@
 
 #define FC_TARGET_MCU        STM32G47X
 
-#define BOARD_NAME           HDZERO_AIO15
+#define BOARD_NAME           HDZERO_GAMMA
 #define MANUFACTURER_ID      HDZO
 
 #define USE_GYRO
@@ -31,11 +31,13 @@
 #define USE_ACC
 #define USE_ACC_SPI_ICM42688P
 
+#define USE_BARO
+#define USE_BARO_DPS310
+
 #define USE_GYRO_CLKIN
-#define GYRO_1_CLKIN_PIN     PB9
+#define GYRO_1_CLKIN_PIN     PB5
 
 #define BEEPER_PIN           PA9
-#define BEEPER_INVERTED
 
 #define MOTOR1_PIN           PA3
 #define MOTOR2_PIN           PA2
@@ -55,6 +57,9 @@
 
 #define UART4_TX_PIN         PC10
 #define UART4_RX_PIN         PC11
+
+#define I2C1_SCL_PIN         PA15
+#define I2C1_SDA_PIN         PB9	
 
 #define LED0_PIN             PA4
 
@@ -82,13 +87,15 @@
 #define ADC2_DMA_OPT                 6
 #define TIMUP5_DMA_OPT               7
 
+#define BARO_I2C_INSTANCE            I2CDEV_1
+
 #define DEFAULT_DSHOT_BITBANG        DSHOT_BITBANG_ON
-#define DEFAULT_CURRENT_METER_SCALE  295 // Verify this
+#define DEFAULT_CURRENT_METER_SCALE  107
 #define DEFAULT_CURRENT_METER_SOURCE CURRENT_METER_ADC
 #define DEFAULT_VOLTAGE_METER_SOURCE VOLTAGE_METER_ADC
 #define SYSTEM_HSE_MHZ               8
-#define GYRO_1_ALIGN                 CW90_DEG_FLIP
-#define DEFAULT_ALIGN_BOARD_YAW      135
-
+#define GYRO_1_ALIGN                 CW0_DEG_FLIP
+#define DEFAULT_ALIGN_BOARD_YAW      -45
 #define MSP_DISPLAYPORT_UART         SERIAL_PORT_USART1
 #define SERIALRX_UART                SERIAL_PORT_USART2
+#define BEEPER_INVERTED
