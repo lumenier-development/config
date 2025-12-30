@@ -15,6 +15,7 @@ jobs:
   # JOB 1.1: Prepares the Matrix using a Marketplace Action
   # -------------------------------------------------------
   prepare_matrix:
+    name: Prepare Build List
     runs-on: ubuntu-latest
 
     outputs:
@@ -70,10 +71,9 @@ jobs:
 
       - name: Check if the Board List is Empty
         id: check_empty
-        # Use JQ to check the length of the JSON array string
+        env:
+          BOARD_LIST: ${{ steps.process_dirs.outputs.board_list_json }}
         run: |
-          BOARD_LIST="${{ steps.process_dirs.outputs.final_list }}"
-
           # JQ checks if the length of the array is 0
           IS_EMPTY=$(echo "$BOARD_LIST" | jq 'length == 0')
 
@@ -85,7 +85,7 @@ jobs:
   # -------------------------------------------------------
 
   setup:
-    name: Setup
+    name: Setup Build Environment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Firmware Repository
@@ -118,6 +118,7 @@ jobs:
   # JOB 2: Runs the matrix for each Target Config
   # ----------------------------------------------------
   process_target:
+    name: Process Target ${{ matrix.target }}
     needs: [prepare_matrix, setup]
     runs-on: ubuntu-latest
     if: ${{ needs.prepare_matrix.outputs.is_empty == 'false' }}
@@ -150,7 +151,7 @@ jobs:
           path: betaflight/tools
           key: ${{ runner.os }}-${{ hashFiles('betaflight/mk/tools.mk') }}
 
-      - name: Process Target ${{ matrix.target }}
+      - name: Build Target ${{ matrix.target }}
         working-directory: ./betaflight
         run: |
           TARGET="${{ matrix.target }}"
