@@ -23,8 +23,8 @@
 
 #define FC_TARGET_MCU        STM32H743
 
-#define BOARD_NAME           JHEH743PRO
-#define MANUFACTURER_ID      JHEF
+#define BOARD_NAME           DREAMWORKSH743
+#define MANUFACTURER_ID      DREA
 
 #define USE_ACC
 #define USE_ACC_SPI_ICM42688P
@@ -73,8 +73,8 @@
 #define I2C1_SDA_PIN         PB7
 #define I2C2_SDA_PIN         PB11
 					         
-#define LED0_PIN             PE5         
-#define LED1_PIN             PE4         
+#define LED0_PIN             PE5
+#define LED1_PIN             PE4
 					         
 #define SPI1_SCK_PIN         PA5
 #define SPI2_SCK_PIN         PB13
