@@ -9,18 +9,22 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |FOSS|Free open source target definitions||
 |COMM|Community provided target definitions for closed source targets||
 |LEGA|Closed source legacy targets without a maintainer||
+|ACRO|ARCROBO Pte., Ltd|https://www.arcrobo.com.sg/|
 |AEDR|AEDROX|https://www.aedrox.com/|
 |AERO|AeroCogito|https://www.aerocogito.com/|
 |AFNG|AlienFlight NG|https://www.alienflightng.com/|
+|AGAM|Agam Robotics|https://www.agamrobotics.com/shop/|
 |AIKO|AIKON Electronics|https://www.aikon-electronics.com/|
 |AIRB|Airbot|https://store.myairbot.com/|
+|AKIN|AKINGFPV|https://www.akingfpv.com/|
 |ALWH|Alienwhoop|https://shop.alienwhoop.us/|
 |ANYL|AnyLeaf|https://www.anyleaf.org/|
 |APEX|Apexfpv|https://apexfpv.eu/|
 |ARKE|ARK Electronics|https://arkelectron.com/|
+|ASKY|AcroSky||
 |AXFL|Axisflying|https://www.axisflying.com/|
 |BEFH|BETAFPV Hobby|https://betafpv.com/|
-|BKMN|Jason Blackman|https://github.com/blckmn|
+|BKMN|BLCKMN|https://github.com/blckmn|
 |BKRC|BAYCK RC||
 |BLDY|BotLab Dynamics|https://www.botlabdynamics.store|
 |BROT|Brotherhobby Co., Ltd|https://brotherhobby.com/|
@@ -37,6 +41,8 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |DFRA|Drone FPV Racer|https://www.drone-fpv-racer.com/|
 |DFRC|Shenzhen Jingfei Technology Co., Ltd|https://dreamflyrc.com/|
 |DIAT|Diatone Innovations|https://www.diatoneusa.com/|
+|DOLP|DolphinRC|https://www.dolphinrc.com/|
+|DPDS|Deepspace FPV|https://www.deepspacefpv.com|
 |DRCL|dronercland|https://www.instagram.com/dronercland/|
 |DREA|DREAMRC|https://github.com/dreamworks-fpv|
 |DRNR|Shenzhen Zhimu Technology Co., Ltd|https://www.droneer.com|
@@ -65,6 +71,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |GEEL|Geelang|https://geelang.com/|
 |GEFP|GetFPV LLC|https://www.getfpv.com/|
 |GEPR|GEPRC|https://geprc.com/|
+|GEUP|Gear Up|https://takeyourgear.com/|
 |GFPV|GE-FPV|http://www.ge-fpv.com/|
 |GMRC|Great Mountain RC|https://github.com/shanggl|
 |HAMO|Happymodel|http://www.happymodel.cn/|
@@ -84,6 +91,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |KONX|Konex Drone, SL|https://konexdrone.com/|
 |LDAR|LDARC|http://ldarc.com/|
 |LMNR|Lumenier|https://www.lumenier.com/|
+|MADF|madflight|https://madflight.com/|
 |MARC|Mayhem RC|https://mayhemrc.com.au/|
 |MEPS|MepsKing|https://www.mepsking.com/|
 |MERA|MerakRC|http://www.merakrc.com/|
@@ -112,6 +120,7 @@ This is the official list of manufacturer ids (`manufacturer_id` in the target c
 |RDMS|RadioMaster RC|https://www.radiomasterrc.com/|
 |RUSH|FPV Racing Rush|http://www.rushfpv.com/|
 |SDRC|Siangda Model Co., Ltd|https://www.sdmodel.com.tw/|
+|SEQU|Sequoia RC|http://hsairc.com|
 |SFLY|Macfos Ltd|https://robu.in|
 |SJET|Shenzhen Jiufang Electronic Technology Co., Ltd|https://www.jiufang-tech.com/|
 |SKST|Shenzhen SKYSTARS Tech Co., LIMITED|http://www.skystars-rc.com/index.html|
