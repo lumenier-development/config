@@ -21,24 +21,22 @@
 
 #pragma once
 
-#define FC_TARGET_MCU     STM32H743
+#define FC_TARGET_MCU        STM32H743
 
-#define BOARD_NAME        LUXH743NDAA
-#define MANUFACTURER_ID   LMNR
+#define BOARD_NAME           LUXH743NDAA
+#define MANUFACTURER_ID      LMNR
 
 #define USE_ACC
 #define USE_ACC_SPI_ICM42688P
 #define USE_GYRO
 #define USE_GYRO_SPI_ICM42688P
+#define USE_ACCGYRO_ICM45686
+#define USE_ACCGYRO_LSM6DSK320X
 #define USE_BARO
 #define USE_BARO_DPS310
 #define USE_FLASH
 #define USE_FLASH_W25Q128FV
 #define USE_SDCARD
-#define USE_MAX7456
-#define USE_EXTI
-#define USE_MPU_DATA_READY_SIGNAL
-#define USE_GYRO_EXTI
 
 #ifndef USE_MAG
 #define USE_MAG
@@ -49,7 +47,7 @@
 #endif
 
 #define USE_GYRO_CLKIN
-#define GYRO_1_CLKIN_PIN     PB15         // TIM12_CH2
+#define GYRO_1_CLKIN_PIN     PB15
 
 #define BEEPER_PIN           PA8
 
@@ -123,9 +121,10 @@
 #define PINIO1_PIN           PB1    // Camera Switch
 #define PINIO2_PIN           PB2    // VTX Power Switch
 #define FLASH_CS_PIN         PA4    // SPI1_NSS
-#define MAX7456_SPI_CS_PIN   PE4    // SPI4_NSS
-#define GYRO_1_EXTI_PIN      PC13  
-#define GYRO_1_CS_PIN        PD7    // SPI6_NSS
+#define GYRO_1_EXTI_PIN      PD10   // LSM6DSK320X #1 INT
+#define GYRO_1_CS_PIN        PA15   // LSM6DSK320X #1 SPI3_NSS
+#define GYRO_2_EXTI_PIN      PC13   // LSM6DSK320X #2 INT
+#define GYRO_2_CS_PIN        PE4    // LSM6DSK320X #2 SPI4_NSS
 #define USB_DETECT_PIN       PD2
 
 /*
@@ -163,34 +162,35 @@
     TIMER_PIN_MAP( 12, RX_PPM_PIN,          1, -1) \
     TIMER_PIN_MAP( 13, LED_STRIP_PIN,       2, 11) \
     TIMER_PIN_MAP( 14, GYRO_1_CLKIN_PIN,    2, -1) \
-    TIMER_PIN_MAP( 15, CAMERA_CONTROL_PIN,  2, -1) \
+    TIMER_PIN_MAP( 15, CAMERA_CONTROL_PIN,  2, -1)
 
-#define ADC1_DMA_OPT        8
-#define ADC3_DMA_OPT        10
-#define TIMUP1_DMA_OPT      12 
-#define TIMUP8_DMA_OPT      13 
-#define TIMUP4_DMA_OPT      14
+#define ADC1_DMA_OPT                        8
+#define ADC3_DMA_OPT                        10
+#define TIMUP1_DMA_OPT                      12
+#define TIMUP8_DMA_OPT                      13
 
-#define MAG_I2C_INSTANCE            (I2CDEV_1)
-#define BARO_I2C_INSTANCE           (I2CDEV_1)
-#define DEFAULT_BARO_I2C_ADDRESS    118
+#define MAG_I2C_INSTANCE                    I2CDEV_1
+#define BARO_I2C_INSTANCE                   I2CDEV_1
+#define DEFAULT_BARO_I2C_ADDRESS            118
 
-#define DEFAULT_BLACKBOX_DEVICE     BLACKBOX_DEVICE_FLASH
-#define DEFAULT_CURRENT_METER_SOURCE CURRENT_METER_ADC
-#define DEFAULT_VOLTAGE_METER_SOURCE VOLTAGE_METER_ADC
-#define DEFAULT_VOLTAGE_METER_SCALE_DEFAULT 110
-#define DEFAULT_CURRENT_METER_SCALE 85
+#define DEFAULT_BLACKBOX_DEVICE             BLACKBOX_DEVICE_FLASH
+#define DEFAULT_CURRENT_METER_SOURCE        CURRENT_METER_ADC
+#define DEFAULT_VOLTAGE_METER_SOURCE        VOLTAGE_METER_ADC
+#define DEFAULT_CURRENT_METER_SCALE         85
 #define BEEPER_INVERTED
 
-#define DEFAULT_GYRO_TO_USE GYRO_CONFIG_USE_GYRO_1
-#define GYRO_1_SPI_INSTANCE SPI6
-#define GYRO_1_ALIGN CW270_DEG_FLIP
-#define FLASH_SPI_INSTANCE SPI1
-#define MAX7456_SPI_INSTANCE SPI4
-#define SDCARD_SPI_INSTANCE SPI2
+#define DEFAULT_GYRO_TO_USE                 GYRO_CONFIG_USE_GYRO_1
+#define GYRO_1_SPI_INSTANCE                 SPI3
+#define GYRO_1_ALIGN                        CW270_DEG_FLIP      // Need to check!
+#define GYRO_2_SPI_INSTANCE                 SPI4
+#define GYRO_2_ALIGN                        CW180_DEG_FLIP      // Need to check!
+#define FLASH_SPI_INSTANCE                  SPI1
+#define SDCARD_SPI_INSTANCE                 SPI2
 #define SDCARD_DETECT_INVERTED
 
-#define PINIO1_CONFIG 1
-#define PINIO1_BOX 40
-#define PINIO2_CONFIG 1
-#define PINIO2_BOX 41
+#define PINIO1_CONFIG                       1
+#define PINIO1_BOX                          40
+#define BOX_USER1_NAME                      "CAM 1,2"
+#define PINIO2_CONFIG                       1
+#define PINIO2_BOX                          41
+#define BOX_USER2_NAME                      "VTX PWR"
