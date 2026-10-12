@@ -170,6 +170,7 @@
 #define TIMUP8_DMA_OPT                      13
 
 #define MAG_I2C_INSTANCE                    I2CDEV_1
+#define MAG_ALIGN                           CW90_DEG_FLIP
 #define BARO_I2C_INSTANCE                   I2CDEV_1
 #define DEFAULT_BARO_I2C_ADDRESS            118
 
