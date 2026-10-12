@@ -181,9 +181,11 @@
 
 #define DEFAULT_GYRO_TO_USE                 GYRO_CONFIG_USE_GYRO_1
 #define GYRO_1_SPI_INSTANCE                 SPI3
-#define GYRO_1_ALIGN                        CW270_DEG_FLIP      // Need to check!
+#define GYRO_1_ALIGN                        CW180_DEG_FLIP
 #define GYRO_2_SPI_INSTANCE                 SPI4
-#define GYRO_2_ALIGN                        CW180_DEG_FLIP      // Need to check!
+#define GYRO_2_ALIGN                        ALIGN_CUSTOM
+#define GYRO_2_ALIGN_PITCH                  1800
+#define GYRO_2_ALIGN_YAW                    2250
 #define FLASH_SPI_INSTANCE                  SPI1
 #define SDCARD_SPI_INSTANCE                 SPI2
 #define SDCARD_DETECT_INVERTED
